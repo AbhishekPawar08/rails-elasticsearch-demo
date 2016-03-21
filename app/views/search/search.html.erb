@@ -1,13 +1,6 @@
-<h1>Articles Search</h1>
+<h1>Search Results</h1>
 
-<%= form_for search_path, method: :get do |f| %>
-	<p>
-	<%= f.label "Search for" %>
-	<%= text_field_tag :q, params[:q] %>
-	<%= submit_tag "Go", name: nil %>
-	</p>
-<% end %>
-
+<% if @articles %>
 <ul>
 	<% @articles.each do |article| %>
 		<li>
@@ -17,4 +10,6 @@
 		</li>
 	<% end %>
 </ul>
-
+<% else %>
+	<p>Your search did not match any documents.</p>
+<% end %>
